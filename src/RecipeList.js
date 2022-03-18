@@ -1,12 +1,12 @@
 import React from "react";
 import Recipe from "./Recipe"
 
-function RecipeList({ recipes, handleDelete }) {
+function RecipeList({ recipes, handleDelete, handleUpdate }) {
   
   // TODO: Display the list of recipes using the structure of table that is provided.
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each recipe row must have a delete button - <button name="delete">Delete</button> - that deletes the post when clicked
-  const content = recipes.map((recipe, index) => <Recipe key={index} recipe={recipe} index={index} handleDelete={() => handleDelete(index)} />);
+  const content = recipes.map((recipe, index) => <Recipe key={index} recipe={recipe} index={index} handleDelete={() => handleDelete(index)} handleUpdate={handleUpdate} />);
 
   return (
     <div className="recipe-list">

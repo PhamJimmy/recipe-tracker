@@ -17,11 +17,16 @@ function App() {
   const deleteRecipe = (indexToDel) => {
     setRecipes((currentRecipes) => currentRecipes.filter((recipe, index) => index !== indexToDel));
   }
+
+  const updateRecipe = (newRecipeInfo) => {
+    const [indexToUpdate, newRecipe] = newRecipeInfo;
+    setRecipes((currentRecipes) => currentRecipes.map((recipe, index) => index === indexToUpdate ? newRecipe : recipe));
+  }
   
   return (
     <div className="App">
       <header><h1>Delicious Food Recipes</h1></header>
-      <RecipeList recipes={recipes} handleDelete={deleteRecipe} />
+      <RecipeList recipes={recipes} handleDelete={deleteRecipe} handleUpdate={updateRecipe} />
       <RecipeCreate createRecipe={createRecipe} />
     </div>
   );
